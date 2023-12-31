@@ -1,0 +1,125 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>inventory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+<!-- <ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inventory Count</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+  <form [formGroup]="createForm" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label> Location Code </ion-label>
+      <ion-input type="text" formControlName="locationCode"></ion-input>
+    </ion-item> 
+
+    <ion-item>
+      <ion-label>Room Number</ion-label>
+      <ion-input type="text" formControlName="roomNumber"></ion-input>
+    </ion-item>
+      <ion-item>
+        <ion-label>Bin Number</ion-label>
+        <ion-input type="text" formControlName="binNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-button color="primary" type="submit" [disabled]="!createForm.valid" [routerLink]="['/native-camera']">Submit</ion-button>
+      <ion-button color="primary" type="cancel" [routerLink]="['/home']">Cancel</ion-button>
+    </form>
+
+
+
+
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar color="tertiary">
+    
+  </ion-toolbar>
+</ion-footer> -->
+
+
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inbox
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button auto-hide="false" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Count List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Inbox
+      </ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <div class="bottom-section">
+    <ion-button class="record-btn" color={{color1}} (click)="pending()">Pending</ion-button>
+    <ion-button class="record-btn" color={{color2}} (click)="all()">All</ion-button>
+    <ion-button class="record-btn" color={{color3}} (click)="counted()">Counted</ion-button>
+  </div>
+
+  <ion-list id="pending" style="display: none;">
+    <app-message *ngFor="let message of pendingData" [message]="message"></app-message>
+  </ion-list>
+
+  <div id="all" style="display: none;">
+    <ion-item *ngFor="let ad of allData" [detail]="false">
+      <!-- <ion-item *ngIf="message" [detail]="false"> -->
+      <div slot="start" [class]="!ad.read ? 'dot dot-unread' : 'dot'"></div>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          {{ ad.phyInvDoc }}
+          <span class="date">
+            <ion-note>{{ ad.time }}</ion-note>
+            <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+          </span>
+        </h2>
+        <h3>{{ ad.date }}</h3>
+        <!-- <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p> -->
+      </ion-label>
+    </ion-item>
+  </div>
+
+
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar color="secondary">
+
+  </ion-toolbar>
+</ion-footer> -->

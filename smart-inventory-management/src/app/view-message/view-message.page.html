@@ -1,0 +1,340 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="goods-issue"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pickaway Task</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" *ngIf="message">
+
+  <ion-slides [pager]="true" (ionSlideWillChange)="onSlideWillChange()" (ionSlideDidChange)="onSlideDidChange()">
+    <ion-slide>
+      <ion-item-sliding>
+        <ion-toolbar style="margin-top: 15%;" color="primary">
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="goods-issue"></ion-back-button>
+          </ion-buttons>
+          <ion-title>Pickaway Task</ion-title>
+          <ion-buttons slot="primary">
+            <ion-button>
+              <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-list>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              TASK
+              <h2>
+                {{ message.taskNo }}
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note> -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              SOURCE BIN
+              <h2>
+                {{ message.docNo }}
+                <!-- <span class="date">
+                  <ion-note>{{ message.date }}</ion-note>
+                </span> -->
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              PRODUCT
+              <h2>
+                {{ message.product }}
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note> -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              BATCH
+              <h2>
+                {{ message.batch }}
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note>  -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <!-- ACTUAL QTY / TARGET QTY -->
+              QTY
+              <h2>
+                10 PC
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note> -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <br>
+          <ion-item>
+            <mat-form-field fxFlex>
+              <mat-label>SOURCE HU</mat-label>
+              <input matInput [value]="data1.text" readonly name="userName1" type="text" required>
+              <button type="button" matSuffix mat-icon-button (click)="huScanner()">
+                <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+                <mat-icon>qr_code</mat-icon>
+              </button>
+            </mat-form-field>
+          </ion-item>
+          <br>
+          <ion-item>
+            <mat-form-field fxFlex>
+              <mat-label>BATCH</mat-label>
+              <input matInput [value]="data2.text" readonly name="userName2" type="text" required>
+              <button type="button" matSuffix mat-icon-button (click)="batchScanner()">
+                <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+                <mat-icon>qr_code</mat-icon>
+              </button>
+            </mat-form-field>
+          </ion-item>
+        </ion-list>
+      </ion-item-sliding>
+      <!-- <ion-item-sliding>
+        <ion-item>
+          hello
+        </ion-item>
+      </ion-item-sliding> -->
+    </ion-slide>
+    <ion-slide>
+      <ion-item-sliding>
+        <ion-toolbar style="margin-top: 15%;" color="primary">
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="goods-issue"></ion-back-button>
+          </ion-buttons>
+          <ion-title>Putaway Task</ion-title>
+          <ion-buttons slot="primary">
+            <ion-button>
+              <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-list>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              TASK
+              <h2>
+                {{ message.taskNo }}
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note> -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              DESTINATION BIN
+              <h2>
+                {{ message.docNo }}
+                <!-- <span class="date">
+                  <ion-note>{{ message.date }}</ion-note>
+                </span> -->
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <!-- ACTUAL QTY / TARGET QTY -->
+              QTY
+              <h2>
+                10 PC
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note> -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              PRODUCT
+              <h2>
+                {{ message.product }}
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note> -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              BATCH
+              <h2>
+                {{ message.batch }}
+                <span class="date">
+                  <!-- <ion-note>{{ message.date }}</ion-note>  -->
+                </span>
+              </h2>
+            </ion-label>
+            <!-- <ion-icon name="person-circle" color="primary"></ion-icon>
+            <p>Open</p> -->
+          </ion-item>
+          <br>
+          <ion-item>
+            <mat-form-field fxFlex>
+              <mat-label>DESTINATION BIN</mat-label>
+              <input matInput [value]="data.text" readonly name="userName" type="text" required>
+              <button type="button" matSuffix mat-icon-button (click)="binScanner()">
+                <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+                <mat-icon>qr_code</mat-icon>
+              </button>
+            </mat-form-field>
+          </ion-item>
+          <br>
+          <ion-item>
+            <mat-form-field fxFlex>
+              <mat-label>BATCH</mat-label>
+              <input matInput [value]="data2.text" readonly name="userName2" type="text" required>
+              <button type="button" matSuffix mat-icon-button (click)="batchScanner()">
+                <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+                <mat-icon>qr_code</mat-icon>
+              </button>
+            </mat-form-field>
+          </ion-item>
+          <div id="footer">
+            <!-- <ion-button type="button" color="secondary" style="float: left; width: 48%" (click)="moreAction()">
+              MORE ACTION
+            </ion-button> -->
+            <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+              <ion-fab-button (click)="moreAction()">
+                <ion-icon name="alert-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            <!-- <ion-button type="button" (click)="confirm()" color="primary" style="float: right; width: 48%">
+              CONFIRM
+            </ion-button> -->
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+              <ion-fab-button (click)="confirm()">
+                <ion-icon name="arrow-forward">
+                </ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </div>
+        </ion-list>
+      </ion-item-sliding>
+    </ion-slide>
+    <!-- <ion-slide>
+
+      <div class="form">
+        <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+          <ion-card>
+            <ion-card-content>
+              <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+                <mat-form-field fxFlex>
+                  <mat-label>DESTINATION BIN</mat-label>
+                  <input matInput [value]="data.text" readonly name="userName" type="text" required>
+                  <button type="button" matSuffix mat-icon-button (click)="binScanner()">
+                     <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> 
+                    <mat-icon>qr_code</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-content>
+              <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+                <mat-form-field fxFlex>
+                  <mat-label>SOURCE HU</mat-label>
+                  <input matInput [value]="data1.text" readonly name="userName1" type="text" required>
+                  <button type="button" matSuffix mat-icon-button (click)="huScanner()">
+                   <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> 
+    <mat-icon>qr_code</mat-icon>
+    </button>
+    </mat-form-field>
+    </div>
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+          <mat-form-field fxFlex>
+            <mat-label>BATCH</mat-label>
+            <input matInput [value]="data2.text" readonly name="userName2" type="text" required>
+            <button type="button" matSuffix mat-icon-button (click)="batchScanner()">
+             <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> 
+    <mat-icon>qr_code</mat-icon>
+    </button>
+    </mat-form-field>
+    </div>
+    </ion-card-content>
+    </ion-card>
+
+
+    <div id="footer">
+      <ion-button type="button" color="secondary" style="float: left; width: 48.5%" (click)="cancel()">
+        CANCEL
+      </ion-button>
+      <ion-button type="submit" color="primary" style="float: right; width: 48.5%">
+        CONFIRM
+      </ion-button>
+    </div>
+
+    </form>
+    </div>
+    <div class="ion-padding">
+      <h1>{{ message.subject }}</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <div id="footer">
+      <ion-button type="button" color="secondary" style="float: left; width: 48%" (click)="moreAction()">
+        MORE ACTION
+      </ion-button>
+      <ion-button type="button" (click)="confirm()" color="primary" style="float: right; width: 48%">
+        CONFIRM
+      </ion-button>
+    </div>
+    </ion-slide> -->
+  </ion-slides>
+
+</ion-content>

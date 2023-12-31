@@ -1,0 +1,8 @@
+{
+  "name": "SmartInventoryManagement",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

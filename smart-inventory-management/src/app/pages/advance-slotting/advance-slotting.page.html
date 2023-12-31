@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button auto-hide="false" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Putaway Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list id="bin">
+    <ion-card>
+      <img src="assets/images/warehouse.png">
+    </ion-card>
+  </ion-list>
+  <ion-fab id="fabButton" style="display: block;" vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="learnVideo()">
+      <ion-icon name="logo-youtube">
+      </ion-icon>
+    </ion-fab-button>
+    <b>Learn More</b>
+  </ion-fab>
+  <ion-fab id="fabButton1" style="display: block;" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="presentAlertConfirm()">
+      <ion-icon name="camera">
+      </ion-icon>
+    </ion-fab-button>
+    <b> Count </b>
+  </ion-fab>
+  <div id="predictImg" style="display: none;">
+    <img [src]="_image" alt="Select Image" />
+  </div>
+  <div id="actionButton" style="display: none; margin: 1%;">
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="proceed()">
+        <ion-icon name="add">
+        </ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar color="tertiary"></ion-toolbar>
+</ion-footer> -->

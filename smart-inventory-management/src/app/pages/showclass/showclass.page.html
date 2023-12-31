@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="goods-issue"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-ios" text-center>Search Putaway Task</ion-title>
+    <ion-buttons slot="end" color="danger">
+      <ion-button>
+        <ion-icon slot="icon-only" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <ion-card-content>
+        <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+          <mat-form-field fxFlex>
+            <mat-label>Refrence Doc</mat-label>
+            <mat-select>
+              <mat-option value="Warehouse Task">Warehouse Task</mat-option>
+              <mat-option value="Material">Material</mat-option>
+              <mat-option value="Purchase Order">Purchase Order</mat-option>
+              <mat-option value="Delivery Document">Delivery Document</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field fxFlex>
+            <mat-label>Task No</mat-label>
+            <input matInput [value]="data.text" readonly name="userName" type="text" required>
+            <button type="button" matSuffix mat-icon-button (click)="qrScanner()">
+              <mat-icon>qr_code</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <label id="example-radio-group-label">Task Status</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+          [(ngModel)]="favoriteSeason" [ngModelOptions]="{standalone: true}">
+          <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [checked]="season.checked"
+            [value]="season.name">
+            {{season.name}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <!-- <div>You Selected: {{favoriteSeason}}</div> -->
+        <!-- <mat-radio-group name="opList" fxLayout="column">
+          <mat-radio-button *ngFor="let op of list" [checked]="op.checked" name="opList">{{ op.name}}
+          </mat-radio-button>
+        </mat-radio-group> -->
+      </ion-card-content>
+    </ion-card>
+
+    <div style="margin: 2%;">
+      <ion-button type="submit" expand="block" color="dark">
+        Search Task
+      </ion-button>
+    </div>
+
+  </form>
+
+
+
+  <!-- <ion-footer>
+  <ion-toolbar color="tertiary">
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer> -->

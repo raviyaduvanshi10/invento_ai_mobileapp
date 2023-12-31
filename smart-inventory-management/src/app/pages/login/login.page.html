@@ -1,0 +1,121 @@
+<ion-content class="animated fadeIn login auth-page ion-padding">
+  <div class="theme-bg"></div>
+  <div class="auth-content">
+
+
+    <div class="ion-padding-horizontal ion-text-center animated fadeInDown">
+      <div class="logo"></div>
+      <h4 class="ion-no-margin">
+        <ion-text color="light" class="fw700">
+          Invento Solution
+        </ion-text>
+      </h4>
+    </div>
+    <br> <br> <br>
+    <!-- Login form -->
+
+    <!-- <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="Username" #input [value]="input.value.toLowerCase()"
+            [(ngModel)]="userForm.userName" name="userName" type="text" #userName="ngModel" required>
+          <span matPrefix>
+            <mat-icon>person_outline</mat-icon>
+          </span>
+          <mat-error *ngIf="userName.errors?.required"> Username is required. </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" [type]="hide ? 'text' : 'password'" name="password"
+            [(ngModel)]="userForm.password" #password="ngModel" required>
+          <span matPrefix>
+            <mat-icon>security_outline</mat-icon>
+          </span>
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.errors?.required"> Password is required. </mat-error>
+        </mat-form-field>
+      </div>
+      <p style="text-align: right;" (click)="forgotPass()" class="paz">
+        <ion-text color="light">
+          <strong>Forgot Pass?</strong>
+        </ion-text>
+      </p>
+
+
+      <ion-button type="submit" expand="block" [disabled]="loginForm.form.invalid" shape="round" color="dark">
+        <ion-icon name="log-in"></ion-icon> Signin
+      </ion-button>
+    </form> -->
+
+    <form novalidate [formGroup]="loginForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+      <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+        <mat-form-field fxFlex appearance="outline">
+          <input matInput formControlName="userName" placeholder="User Name" #input [value]="input.value.toLowerCase()"
+            type="text" required>
+          <span matPrefix>
+            <mat-icon>person_outline</mat-icon>
+          </span>
+          <mat-error *ngIf="formErrors.userName">{{formErrors.userName}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field fxFlex appearance="outline">
+          <input matInput formControlName="password" placeholder="Password" [type]="hide ? 'text' : 'password'"
+            required>
+          <span matPrefix>
+            <mat-icon>security_outline</mat-icon>
+          </span>
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+        </mat-form-field>
+
+        <p style="text-align: right;" (click)="forgotPass()" class="paz">
+          <ion-text color="light">
+            <strong>Forgot Pass?</strong>
+          </ion-text>
+        </p>
+
+
+        <ion-button type="submit" expand="block" shape="round" color="dark" [disabled]="fform.form.invalid">
+          <ion-icon name="log-in"></ion-icon> Signin
+        </ion-button>
+        <!-- <button type="submit" mat-button class="background-primary text-floral-white">Submit</button> -->
+      </div>
+    </form>
+
+    <br> <br>
+    <div>
+      <ion-button fxFlex shape="round" expand="full" color="secondary">
+        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button fxFlex shape="round" expand="full" color="secondary">
+        <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+      </ion-button>
+
+      <ion-button fxFlex shape="round" expand="full" color="secondary">
+        <ion-icon slot="icon-only" ios="logo-google" md="logo-google"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Other links -->
+    <!-- <div text-center margin-top>
+      <span (click)="goToRegister()" class="paz" tappable>
+        <ion-text color="light">
+          New here? <strong>Sign Up</strong>
+        </ion-text>
+      </span>
+    </div> -->
+
+  </div>
+
+
+
+</ion-content>

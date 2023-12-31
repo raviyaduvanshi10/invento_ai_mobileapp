@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        <ion-text color="light" class="fw700">Home</ion-text>
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="notifications(10)">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge color="dark" slot="end">2</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-card>
+      <img src="assets/images/banner_inventory.png">
+    </ion-card>
+    <div *ngFor="let p of homePage">
+      <ion-button style="height: 80px; margin: 3%;" type="button" expand="block" routerDirection="root"
+        [routerLink]="[p.url]" lines="primary-dark" detail="false" routerLinkActive="selected">
+        <ion-label color="primary-pale">{{ p.title }}</ion-label>
+      </ion-button>
+    </div>
+  </ion-list>
+
+  <div class="pop">
+    <popmenu></popmenu>
+  </div>
+
+</ion-content>

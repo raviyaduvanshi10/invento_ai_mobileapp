@@ -1,0 +1,64 @@
+<ion-header>
+  <!-- <ion-toolbar color="tertiary" style="text-align: center;"> -->
+    
+  <ion-toolbar color="secondary" style="text-align: center;">
+    <ion-title>Invento Solution</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="class-name">
+  <br> <br>
+
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxlayoutGap.lt-md="10px">
+
+
+    <div fxFlex style="text-align: center; color: white; margin-top: 100px;">
+      <h1>Physical Inventory</h1>
+    </div>
+
+    <div style="padding: 15px;" fxFlex>
+      <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+          <mat-form-field class="user" fxFlex appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Enter username..." #input [value]="input.value.toLowerCase()"
+              [(ngModel)]="userForm.userName" name="userName" type="text" #userName="ngModel" required>
+            <span matPrefix>
+              <mat-icon>person_outline</mat-icon>
+            </span>
+            <mat-error *ngIf="userName.errors?.required"> Username is required. </mat-error>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field fxFlex appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter password..." [type]="hide ? 'text' : 'password'" name="password"
+              [(ngModel)]="userForm.password" #password="ngModel" required>
+            <span matPrefix>
+              <mat-icon>lock_outline</mat-icon>
+            </span>
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.errors?.required"> Password is required. </mat-error>
+          </mat-form-field>
+          <!-- <mat-checkbox [(ngModel)]="userForm.remember" name="remember">
+              Remember Me
+            </mat-checkbox> -->
+        </div>
+        <br>
+        <ion-button type="submit" expand="block" [disabled]="loginForm.form.invalid"> Logon </ion-button>
+      </form>
+    </div>
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <!-- <ion-toolbar color="tertiary" style="text-align: center;"> -->
+    
+  <ion-toolbar color="secondary" style="text-align: center;">
+  </ion-toolbar>
+</ion-footer>

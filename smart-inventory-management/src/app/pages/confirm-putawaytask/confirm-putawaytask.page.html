@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirm Putaway Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <ion-card-content>
+        <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+          <mat-form-field fxFlex>
+            <mat-label>DESTINATION BIN</mat-label>
+            <input matInput [value]="data.text" readonly name="userName" type="text" required>
+            <button type="button" matSuffix mat-icon-button (click)="binScanner()">
+              <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+              <mat-icon>qr_code</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+          <mat-form-field fxFlex>
+            <mat-label>SOURCE HU</mat-label>
+            <input matInput [value]="data1.text" readonly name="userName1" type="text" required>
+            <button type="button" matSuffix mat-icon-button (click)="huScanner()">
+              <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+              <mat-icon>qr_code</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="loginForm" fxLayout="column" fxLayout.md_lt="row" fxlayoutGap="10px" fxLayoutGap.md_lt="10px">
+
+          <mat-form-field fxFlex>
+            <mat-label>BATCH</mat-label>
+            <input matInput [value]="data2.text" readonly name="userName2" type="text" required>
+            <button type="button" matSuffix mat-icon-button (click)="batchScanner()">
+              <!-- <ion-icon slot="icon-only" name="barcode-outline"></ion-icon> -->
+              <mat-icon>qr_code</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+
+    <div id="footer">
+      <ion-button type="button" color="secondary" style="float: left; width: 48.5%" (click)="cancel()">
+        CANCEL
+      </ion-button>
+      <ion-button type="submit" color="primary" style="float: right; width: 48.5%">
+        CONFIRM
+      </ion-button>
+    </div>
+
+  </form>
+
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar color="secondary"></ion-toolbar>
+</ion-footer> -->

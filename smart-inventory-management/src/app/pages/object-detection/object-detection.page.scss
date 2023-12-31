@@ -1,0 +1,75 @@
+.text-center {
+    text-align: center;
+}
+
+.picture {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+img{
+    height: 70vh !important;
+    width: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: auto !important;
+    margin-top:10px;
+    display: block !important;
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 4px;
+    }
+    .itemSection{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    }
+    ion-content{
+    background: #eee;
+    }
+
+
+
+
+    
+  
+    th{
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 10px;
+      background-color: lightblue;
+      color: #0C2531;
+      // height: 30px;
+      width: 100%;
+      font-size: 10px;
+      // border-radius: 0px 0px 0px 0px;
+      text-align: center;
+    }
+  
+  table{
+    // border-collapse: collapse;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #0C2531;
+    border-radius: 20px 20px 20px 20px ;
+  }
+  
+  table tr:nth-child(odd) {
+    background-color: white;
+  }
+  table tr:nth-child(even) {
+    background-color: rgba(238, 28, 37, 0.0470588235294118);
+  }
+  
+
+// .table-responsive {
+//   overflow-y: auto;
+//   height: 450px;
+//   }
+//   .table-responsive thead th {
+//     position: sticky;
+//     top: 0;
+//   }
+ 
+

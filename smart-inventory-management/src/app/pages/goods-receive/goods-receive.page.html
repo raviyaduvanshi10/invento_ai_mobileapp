@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button auto-hide="false" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Goods Receipt</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    <div style="margin-left: 5%; margin-right: 5%; ">
+      <ion-item>
+        <ion-label> Date</ion-label>
+        <ion-datetime value="2022-01-01" placeholder="Select Date"></ion-datetime>
+      </ion-item>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list id="pending" style="display: none;">
+    <app-goods-issue-task *ngFor="let message of pendingData" [message]="message"></app-goods-issue-task>
+  </ion-list>
+
+  <div id="all" style="display: none;">
+    <ion-item *ngFor="let ad of allData" [detail]="false">
+      <div slot="start" [class]="!ad.read ? 'dot dot-unread' : 'dot'"></div>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          {{ ad.phyInvDoc }}
+          <span class="date">
+            <ion-note>{{ ad.time }}</ion-note>
+            <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+          </span>
+        </h2>
+        <h3>{{ ad.date }}</h3>
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>

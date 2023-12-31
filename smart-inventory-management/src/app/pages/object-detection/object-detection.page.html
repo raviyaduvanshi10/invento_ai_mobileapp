@@ -1,0 +1,90 @@
+<ion-header>
+  <div>
+    <ion-toolbar id="itb1" style="display: block;" color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button auto-hide="false" defaultHref="inventory"></ion-back-button>
+      </ion-buttons>
+      <ion-title> Counting </ion-title>
+    </ion-toolbar>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <div id="bin" style="display: block;">
+      <div style="float: left; width: 75%; ">
+        <p>
+          <ion-item lines="none"> <b>{{inventoryObject.binNo}}</b></ion-item>
+          <ion-item lines="none" style="font-size: 14px;"> <b>Product Order: {{inventoryObject.prodDesc}}</b>
+          </ion-item>
+        </p>
+      </div>
+      <div style="float: right; width: 25%; margin-top: 8px; text-align: end;">
+        <p><b style="margin-right: 5px;">Empty</b>
+          <mat-slide-toggle style="margin-right: 2%;" [(ngModel)]="checked" class="example-margin" [color]="color"
+            (change)="changed()">
+          </mat-slide-toggle>
+        </p>
+      </div>
+      <div style="margin-bottom: 3%; margin-left: 3%; margin-right: 3%;">
+        <ion-progress-bar color="primary" type="indeterminate"></ion-progress-bar>
+      </div>
+    </div>
+  </ion-card>
+
+  <div id="predictImg" style="display: none;">
+    <img [src]="_image" alt="Select Image" />
+  </div>
+
+  <div class="table-responsive">
+    <!-- <table class="table">
+      <thead>
+        <tr *ngFor="let item of testArray | keyvalue">
+          <th scope="col">{{item.key | uppercase}}</th>
+          <th>{{item.value}} </th>
+        </tr>
+      </thead> -->
+    <!-- <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody> -->
+    <!-- </table> -->
+    <div id="actionButton" style="display: none; margin: 1%;">
+      <!-- <ion-button expand="medium" (click)="back()">Back</ion-button>
+      <ion-button expand="medium" (click)="proceed()">Proceed</ion-button> -->
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="proceed()">
+          <ion-icon name="add">
+          </ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+  </div>
+
+
+
+  <!-- <div align="end">
+    <button style="margin: 1%;" class="btn btn-primary">Clear Response</button>
+    <button class="btn btn-primary">Save Response</button>
+  </div> -->
+
+
+  <ion-fab id="fabButton" style="display: block;" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="presentAlertConfirm()">
+      <ion-icon name="camera">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <div [hidden]="!submitted">
+    <h4>{{counted}}</h4>
+  </div> -->
+
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar color="tertiary">
+  <ion-toolbar color="tertiary">
+
+  </ion-toolbar>
+</ion-footer> -->

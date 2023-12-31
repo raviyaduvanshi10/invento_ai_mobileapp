@@ -1,0 +1,63 @@
+// .class-name {
+//     --background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+//         url("/assets/images/background2.jpg") 0 0/100% 100% no-repeat;
+//     // --background: url("/assets/images/background2.jpg");
+//     // width: 100vw;
+//     // height: 100vh;
+//     display: table;
+//     background-position: center top;
+//     width: 100%;
+//     height: 350px;
+//     color: white;
+// }
+
+.loginForm {
+    color: white;
+    font-size: 14px;
+}
+
+@mixin md-icon-size($size: 124px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+    line-height: $size;
+}
+
+/* 2. Then use it like this in you component scss */
+
+mat-icon {
+    @include md-icon-size(32px);
+}
+
+.mat-icon {
+    font-size: 28px;
+}
+
+::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: white;
+    }
+}
+
+mat-label {
+    color: white !important;
+    font-size: larger;
+}
+::placeholder {
+    color: white;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white !important;
+}
+
+:host {
+    ion-content {
+        --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+    }
+}
+
+.paz {
+    position: relative;
+    z-index: 10;
+}

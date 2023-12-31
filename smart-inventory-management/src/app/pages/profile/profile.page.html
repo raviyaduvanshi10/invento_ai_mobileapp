@@ -1,0 +1,21 @@
+<ion-toolbar id="itb1" style="display: block;" color="secondary">
+  <ion-buttons slot="start">
+    <ion-menu-button auto-hide="false"></ion-menu-button>
+  </ion-buttons>
+  <ion-title> {{user}} </ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      {{myDate | date: 'MMM d, y, h:mm:ss a'}}
+    </ion-card-content>
+  </ion-card>
+  <!-- <p>{{myDate | date: 'MMM d, y, h:mm:ss a'}} </p> -->
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar color="secondary">
+
+  </ion-toolbar>
+</ion-footer> -->
